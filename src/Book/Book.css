@@ -1,0 +1,17 @@
+.book-item{
+    border:1px solid gray;
+    float:left;
+    margin:10px;
+    padding: 10px;
+    font-family: sans-serif;
+    border-radius: 10px 5px;
+}
+.book-item button{
+    padding: 6px 20px;
+    border: none;
+    outline: none;
+    background: #8bc34a;
+    color: white;
+    text-transform: uppercase;
+    float: right;
+}
