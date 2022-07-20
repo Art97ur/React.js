@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import React from 'react'
+class App extends React.Component {
+  state = {
+    name: "Armen",
+    books: ["JS", "React/Angular", "Vue", "Node"]
+  }
+  updateName() {
+    this.setState(current => {
+      current.name = "Tigran"
+      return current
+    })
+  }
+  removeLast() {
+    this.setState(curr => {
+      curr.books.pop()
+      return curr
+    })
+  }
+  render() {
+    return <div>
+      <h1>Hello, my name is {this.state.name}</h1>
+      <p>These are the titles of my books</p>
+      <ul>
+        {
+          this.state.books.map((elm, index) => {
+            return <li key={index}> {elm} </li>
+          })
+        }
+      </ul>
+      <button onClick={() => this.updateName()}>
+        change name
+      </button>
+      <button onClick={() => this.removeLast()}>
+        remove last
+      </button>
     </div>
-  );
+  }
 }
-
-export default App;
+export default App
